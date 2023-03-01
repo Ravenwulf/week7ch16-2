@@ -2,7 +2,6 @@
 #define INTRANGE_H   
 
 #include <iostream>
-using namespace std;
 
 class IntRange
 {
@@ -12,16 +11,22 @@ private:
   int upper;	// Upper limit of range
 public:
 // Exception class
-  class OutOfRange { };	 // Empty class declaration
+  class OutOfRange { 
+  private: 
+	  int userValue;
+  public:
+	  OutOfRange(int u) { this->userValue = u; }
+	  int getUserValue() {  return this->userValue; }
+  };	 // Empty class declaration
 // Member functions
 	IntRange(int low, int high) {
 		lower = low;
-	   upper = high; 
+		upper = high; 
 	}
 	int getInput() {
-	  cin >> input;
+	  std::cin >> input;
 	  if (input < lower || input > upper)
-	     throw OutOfRange();
+	     throw OutOfRange(input);
 	  return input;
 	}
 };
