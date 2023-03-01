@@ -11,13 +11,20 @@ private:
   int upper;	// Upper limit of range
 public:
 // Exception class
-  class OutOfRange { 
+  class OutOfLowerRange { 
   private: 
 	  int userValue;
   public:
-	  OutOfRange(int u) { this->userValue = u; }
+	  OutOfLowerRange(int u) { this->userValue = u; }
 	  int getUserValue() {  return this->userValue; }
   };	 // Empty class declaration
+  class OutOfUpperRange {
+  private:
+	  int userValue;
+  public:
+	  OutOfUpperRange(int u) { this->userValue = u; }
+	  int getUserValue() { return this->userValue; }
+  };
 // Member functions
 	IntRange(int low, int high) {
 		lower = low;
@@ -25,8 +32,10 @@ public:
 	}
 	int getInput() {
 	  std::cin >> input;
-	  if (input < lower || input > upper)
-	     throw OutOfRange(input);
+	  if (input < lower)
+	     throw OutOfLowerRange(input);
+	  if (input > upper)
+		  throw OutOfUpperRange(input);
 	  return input;
 	}
 };

@@ -12,8 +12,10 @@ int main()
    try {
         userValue = range.getInput();
         std::cout << "You entered " << userValue << std::endl;
-   } catch (IntRange::OutOfRange e) {
-       std::cout << e.getUserValue() << " is out of range.\n";
+   } catch (IntRange::OutOfLowerRange e) {
+       std::cout << e.getUserValue() << " is lower than the range.\n";
+   } catch (IntRange::OutOfUpperRange e) {
+       std::cout << e.getUserValue() << " is above the range.\n";
    }
    std::cout << "End of the program.\n";
    return 0;
