@@ -14,13 +14,11 @@ public:
 // Exception class
   class OutOfRange { };	 // Empty class declaration
 // Member functions
-	IntRange(int low, int high)	// Constructor
-	{ 
+	IntRange(int low, int high) {
 		lower = low;
 	   upper = high; 
 	}
-	int getInput()
-	{
+	int getInput() {
 	  cin >> input;
 	  if (input < lower || input > upper)
 	     throw OutOfRange();
