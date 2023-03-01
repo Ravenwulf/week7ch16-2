@@ -23,6 +23,6 @@ public:
 	  if (input < lower || input > upper)
 	     throw OutOfRange();
 	  return input;
-   }
+	}
 };
 #endif
